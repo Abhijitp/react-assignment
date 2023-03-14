@@ -1,7 +1,7 @@
 import { getDocs, collection } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../config/firebase";
-import { Post } from "./post";
+import { Post as IPost } from "./post";
 
 export interface Post {
   id: string;
@@ -29,7 +29,7 @@ export const Main = () => {
   return (
     <div>
       {postsList?.map((post, index) => (
-        <div key={index}><Post post={post} /></div>
+        <div key={index}><IPost post={post} /></div>
       ))}
     </div>
   );

@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from "firebase/auth";
 
 export const Navbar = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const signUserOut = async () => {
         await signOut(auth);
       };
@@ -22,7 +22,7 @@ export const Navbar = () => {
             {user && (
                 <div>
                 <p> {user?.displayName} </p>
-                <img src={user?.photoURL || ""} width="20" height="20" />
+                <img src={user?.photoURL || ""} alt={user?.photoURL || ""} width="20" height="20" />
                 <button onClick={signUserOut}> Log Out</button>
                 </div>
             )}
